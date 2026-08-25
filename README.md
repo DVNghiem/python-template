@@ -3,6 +3,8 @@
 
 **A High-Performance Python Web Framework with Rust Runtime**
 
+📖 **Documentation: [hypern.smartsolution.id.vn](https://hypern.smartsolution.id.vn)** — full guides, API reference, and examples.
+
 Hypern is a flexible, open-source web framework that combines the ease of Python with the raw performance of [Rust](https://github.com/rust-lang/rust). Built on top of production-ready Rust libraries, Hypern empowers you to rapidly develop high-performance web applications, RESTful APIs, and real-time systems.
 
 With Hypern, you get seamless async/await support, built-in WebSocket and SSE capabilities, powerful task scheduling, and comprehensive middleware support—all while writing familiar Python code with the performance characteristics of Rust.
