@@ -12,13 +12,13 @@ jobs:
     env:
       IMAGE: hypern-docs:latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Build image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: Dockerfile.docs
@@ -31,7 +31,7 @@ jobs:
         run: docker save ${{ env.IMAGE }} | gzip > hypern-docs.tar.gz
 
       - name: Copy image to server
-        uses: appleboy/scp-action@v0.1.7
+        uses: appleboy/scp-action@v1.0.0
         with:
           host: ${{ secrets.DOCS_HOST }}
           username: ${{ secrets.DOCS_USER }}
@@ -41,7 +41,7 @@ jobs:
           target: "~/deploy/"
 
       - name: Copy compose to server
-        uses: appleboy/scp-action@v0.1.7
+        uses: appleboy/scp-action@v1.0.0
         with:
           host: ${{ secrets.DOCS_HOST }}
           username: ${{ secrets.DOCS_USER }}
@@ -52,7 +52,7 @@ jobs:
           strip_components: 1
 
       - name: Deploy on server
-        uses: appleboy/ssh-action@v1.0.3
+        uses: appleboy/ssh-action@v1.2.5
         with:
           host: ${{ secrets.DOCS_HOST }}
           username: ${{ secrets.DOCS_USER }}
